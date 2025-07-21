@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Project - Find Your Ideal Vacation Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- IMPORTANT: Link to your compiled Tailwind CSS from your local build -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <!-- REMOVED: Tailwind CSS CDN and inline config are no longer needed here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksKfESc8tV+c0qgG+dtsR1nS9s5O4Zl7Xm3+G8/fA1K4f9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="font-inter text-dark-text bg-light-gray-bg">
+
+    <!-- Header Section -->
+    <header class="flex justify-between items-center px-8 py-6 bg-white shadow-sm">
+        <div class="flex items-center space-x-3 text-3xl font-bold text-blue-600" style="font-family: 'Playfair Display', serif;">
+            <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a1 1 0 000 2h1v10a1 1 0 001 1h8a1 1 0 001-1V5h1a1 1 0 100-2H4zm4 2h4v3H8V5zm0 5h4v3H8v-3z" /></svg>
+             <span>Hotel Project</span>
+        </div>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium"> 
+            <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">Agents</a>
+            <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">Blog</a>
+            <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-4 text-sm font-medium">
+            <div class="flex items-center gap-1 text-medium-gray-text">
+                <i class="fas fa-flag text-base"></i> EN
+            </div>
+            <!-- This is the button that will open the booking modal -->
+            <!-- Button to Open Modal -->
+        <button id="openBookingModalBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Book Now</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-center py-16 px-8 md:px-16 gap-8 bg-light-gray-bg">
+        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 text-dark-text">Find the ideal<br>vacation rental.</h1>
+            <p class="text-lg text-medium-gray-text max-w-md mx-auto md:mx-0">Search through our diverse vacation rental listings to find the perfect accommodation that meets your needs and preferences for an unforgettable getaway.</p>
+        </div>
+    </section>
+
+    <!-- Search/Filter Section (Example) -->
+    <section class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex items-end justify-center pb-16">
+        <img src="IMG20230816183117.jpg" alt="Beach Background" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-20"></div>
+
+        <div class="relative bg-white p-4 md:p-6 rounded-xl shadow-2xl flex flex-col md:flex-row items-center gap-4 w-11/12 max-w-5xl z-10 -mb-24">
+            <div class="flex-1 w-full">
+                <select class="block w-full border border-border-gray rounded-lg px-4 py-3 text-medium-gray-text focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-200">
+                    <option>Rent/Buy</option>
+                    <option>Rent</option>
+                    <option>Buy</option>
+                </select>
+            </div>
+            <div class="flex-1 w-full">
+                <select class="block w-full border border-border-gray rounded-lg px-4 py-3 text-medium-gray-text focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-200">
+                    <option>House</option>
+                    <option>Condo</option>
+                    <option>Villa</option>
+                    <option>Cabin</option>
+                </select>
+            </div>
+            <div class="flex-1 w-full">
+                <select class="block w-full border border-border-gray rounded-lg px-4 py-3 text-medium-gray-text focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-200">
+                    <option>Manila, Amanpulo</option>
+                    <option>Manila, Palawan</option>
+                    <option>Manila, Boracay</option>
+                    <option>Manila, Batangas</option>
+                </select>
+            </div>
+            <button class="w-full md:w-auto px-8 py-3 bg-primary-blue text-white rounded-lg font-semibold hover:bg-secondary-blue transition-colors duration-200">Search</button>
+        </div>
+    </section>
+
+    <!-- Why Book Section (Your service cards) -->
+    <section class="py-32 px-8 md:px-16 bg-light-gray-bg text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark-text">Why book with Hotel Project</h2>
+        <p class="text-lg text-medium-gray-text max-w-2xl mx-auto mb-16">We provide everything necessary for booking your vacation home, ensuring a secure and effortless reservation process.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- 24/7 Guest Service Card -->
+            <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
+                <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
+                    <!-- Using placeholder image for now -->
+                    <img src="https://placehold.co/80x80/E6F2F2/0A6868?text=24/7" alt="24/7 Guest Service Logo" class="w-full h-full object-contain p-2">
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-dark-text">24/7 guest service</h3>
+                <p class="text-medium-gray-text leading-relaxed">Count on us—our dedicated support team is just a call, text, or email away, day or night.</p>
+            </div>
+
+            <!-- Best Pricing Card -->
+            <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
+                <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
+                    <!-- Using Font Awesome icon -->
+                    <i class="fas fa-tag text-3xl text-primary-blue"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-dark-text">Best pricing</h3>
+                <p class="text-medium-gray-text leading-relaxed">Book directly for exclusive discounts and the lowest prices, guaranteeing the best value for your stay.</p>
+            </div>
+
+            <!-- Expert Cleaning Card -->
+            <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
+               <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
+                    <!-- Using Font Awesome icon -->
+                    <i class="fas fa-broom text-3xl text-primary-blue"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-dark-text">Expert cleaning</h3>
+                <p class="text-medium-gray-text leading-relaxed">Enjoy a completely cleaned and sanitized home upon arrival, complete with fresh linens and towels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Modal -->
+<div id="bookingModal" class="fixed inset-0 z-50 items-center justify-center bg-black/50 transition duration-300 hidden">
+
+  <div id="modalContent" class="bg-white p-6 rounded-xl w-[90%] max-w-md transform transition duration-300 scale-95 opacity-0">
+
+    <!-- Close Button -->
+    <button id="closeModalBtn" class="absolute top-2 right-3 text-gray-500 text-xl">&times;</button>
+
+    <h2 class="text-xl font-bold text-dark-text mb-4">Book Your Stay</h2>
+
+    <!-- Form Start -->
+    <form id="contactForm" novalidate class="text-left space-y-3 text-sm">
+      <!-- Email -->
+      <div>
+        <label for="contactEmail" class="sr-only">Email</label>
+        <input type="email" id="contactEmail" name="contactEmail"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray"
+          placeholder="Email" />
+        <p id="contactEmailError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Full Name -->
+      <div>
+        <label for="Fullname" class="sr-only">Full Name</label>
+        <input type="text" id="Fullname" name="Fullname"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray"
+          placeholder="Full name" />
+        <p id="contactFullnameError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="contactPhoneNumber" class="sr-only">Phone number</label>
+        <input type="tel" id="contactPhoneNumber" name="contactPhoneNumber"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray"
+          placeholder="Phone number" />
+        <p id="contactPhoneNumberError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="contactMessage" class="sr-only">Message</label>
+        <textarea id="contactMessage" name="contactMessage" rows="3"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray resize-none"
+          placeholder="Message (optional)"></textarea>
+        <p id="contactMessageError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Guests -->
+      <div>
+        <label for="guests" class="sr-only">Guests</label>
+        <select id="guests" name="guests"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray text-sm">
+          <option value="">Select guests</option>
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5+">5+ Guests</option>
+        </select>
+        <p id="guestsError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Check-in -->
+      <div>
+        <label for="checkin" class="sr-only">Check-in Date</label>
+        <input type="date" id="checkin" name="checkin"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-blue border-border-gray" />
+        <p id="checkinError" class="text-red-500 text-xs mt-1 hidden"></p>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full bg-black text-white py-2 rounded font-semibold hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">
+        Submit
+      </button>
+    </form>
+
+    <!-- Confirmation -->
+    <div id="confirmationSection" class="hidden flex flex-col items-center mt-4">
+      <svg id="checkmarkIcon" class="w-10 h-10 text-green-500 mb-2" viewBox="0 0 24 24" fill="none">
+        <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <p class="text-sm font-bold text-green-600">Booking Complete!</p>
+    </div>
+  </div>
+</div>
+
+
+    <footer class="text-center py-8 text-medium-gray-text bg-white border-t border-border-gray">
+        &copy; 2025 Hotel Project. All rights reserved.
+    </footer>
+   <script src="form-script.js"></script>
+</body>
+</html>
