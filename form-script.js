@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       confirmationSection.querySelector("p").textContent = "Booking confirmed!";
 
       setTimeout(() => {
-       window.location.href = "WebSample.html"; // Redirect back to your page
+       window.location.href = "index.html"; // Redirect back to your page
      }, 2000);
    } else {
      alert("❌ Submission failed. Please try again.");
