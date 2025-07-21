@@ -20,17 +20,54 @@
         <nav class="hidden md:flex space-x-8 text-sm font-medium"> 
             <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">Agents</a>
             <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">Blog</a>
-            <a href="#" class="text-medium-gray-text hover:text-primary-blue transition-colors duration-200">FAQ</a>
+           
+            <!-- This is the button that will open the FAQ modal -->
+        <button id="openFaqBtn" class="text-medium-gray-text hover:text-primary-blue transition duration-200">FAQ</button>
         </nav>
+
         <div class="flex items-center gap-4 text-sm font-medium">
             <div class="flex items-center gap-1 text-medium-gray-text">
                 <i class="fas fa-flag text-base"></i> EN
             </div>
+
             <!-- This is the button that will open the booking modal -->
             <!-- Button to Open Modal -->
-        <button id="openBookingModalBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Book Now</button>
+        <button id="openBookingModalBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Book Now</button>  
         </div>
     </header>
+
+
+    <!-- FAQ Modal -->
+<div id="faqModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 transition duration-300">
+  <div id="faqModalContent" class="bg-white p-6 rounded-xl w-[90%] max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg transform scale-95 opacity-0 transition duration-300 relative">
+    
+    <!-- Close Button -->
+    <button id="closeFaqBtn" class="absolute top-2 right-4 text-gray-500 text-xl font-bold">&times;</button>
+
+    <!-- FAQ Title -->
+    <h2 class="text-xl md:text-2xl font-bold mb-4 text-center text-dark-text">Frequently Asked Questions</h2>
+
+    <!-- FAQ Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm">
+        <h3 class="font-semibold text-dark-text mb-1">What is the cancellation policy?</h3>
+        <p class="text-medium-gray-text">Most reservations offer free cancellation up to 24 hours before check-in.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm">
+        <h3 class="font-semibold text-dark-text mb-1">Are there any hidden fees?</h3>
+        <p class="text-medium-gray-text">No. All charges are shown before you book.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm">
+        <h3 class="font-semibold text-dark-text mb-1">Is breakfast included?</h3>
+        <p class="text-medium-gray-text">It depends on the property — see Amenities on the listing.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm">
+        <h3 class="font-semibold text-dark-text mb-1">How do I contact the host?</h3>
+        <p class="text-medium-gray-text">After booking, you'll receive the host's contact info via email.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Hero Section -->
     <section class="flex flex-col md:flex-row items-center justify-center py-16 px-8 md:px-16 gap-8 bg-light-gray-bg">
@@ -82,7 +119,8 @@
             <!-- 24/7 Guest Service Card -->
             <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
                 <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
-                    <!-- Using placeholder image for now -->
+                   
+                  <!-- Using placeholder image for now -->
                     <img src="https://placehold.co/80x80/E6F2F2/0A6868?text=24/7" alt="24/7 Guest Service Logo" class="w-full h-full object-contain p-2">
                 </div>
                 <h3 class="text-xl font-semibold mb-3 text-dark-text">24/7 guest service</h3>
@@ -92,7 +130,8 @@
             <!-- Best Pricing Card -->
             <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
                 <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
-                    <!-- Using Font Awesome icon -->
+                    
+                  <!-- Using Font icon -->
                     <i class="fas fa-tag text-3xl text-primary-blue"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-3 text-dark-text">Best pricing</h3>
@@ -102,7 +141,8 @@
             <!-- Expert Cleaning Card -->
             <div class="bg-card-bg p-8 rounded-xl shadow-lg flex flex-col items-center border border-border-gray">
                <div class="w-20 h-20 bg-icon-bg-light rounded-full flex items-center justify-center mb-6">
-                    <!-- Using Font Awesome icon -->
+
+                <!-- Using Font icon -->
                     <i class="fas fa-broom text-3xl text-primary-blue"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-3 text-dark-text">Expert cleaning</h3>
@@ -201,10 +241,22 @@
   </div>
 </div>
 
+    <!-- Footer Section -->
 
-    <footer class="text-center py-8 text-medium-gray-text bg-white border-t border-border-gray">
-        &copy; 2025 Hotel Project. All rights reserved.
-    </footer>
+  <footer class="text-center py-8 text-medium-gray-text bg-white border-t border-border-gray">
+        &copy; <span id="copyrightYear"></span> Hotel Project. All rights reserved.
    <script src="form-script.js"></script>
-</body>
+   <script src="Faq-script.js"></script>
+
+  <section class="py-20 bg-white text-center" id="projects">
+    <h2 class="text-3xl font-bold mb-6">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+     <div class="bg-gray-100 p-6 rounded shadow hover:shadow-md transition">
+        <h3 class="text-xl font-semibold mb-2">Hotel Reservation App</h3>
+       <p class="text-sm text-gray-600 mb-2">Built with HTML, Tailwind CSS & Google Apps Script</p>
+      <a href="https://github.com/Jino1999/Hotel-Reservation" class="text-blue-500 underline">View on GitHub</a>
+    </div>
+  </div>
+  </section>
+  </body>
 </html>

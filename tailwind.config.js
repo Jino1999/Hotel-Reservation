@@ -1,7 +1,9 @@
   /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./WebSample.html", // Make sure this is correct for your main HTML file
+    "./index.html", // Make sure this is correct for your main HTML file
+    "./*.html",
+    "./*.js"
     // ... any other paths for files using Tailwind classes
   ],
   theme: {

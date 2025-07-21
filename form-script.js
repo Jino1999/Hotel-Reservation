@@ -129,3 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+/// Copyright Year Update
+ document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
